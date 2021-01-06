@@ -113,6 +113,7 @@ public class SampleController {
 	
 	
 	// If user chooses left keyword
+	@FXML
 	public void chooseLeft() {
 		
 		this.guessMade();
@@ -126,6 +127,7 @@ public class SampleController {
 	}
 	
 	// If user chooses right keyword
+	@FXML
 	public void chooseRight() {
 		
 		this.guessMade();
@@ -138,6 +140,7 @@ public class SampleController {
 	}
 	
 	// If user starts new game
+	@FXML
 	public void handleStart() {
 		this.newRound();
 	}
