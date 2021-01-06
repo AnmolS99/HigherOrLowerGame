@@ -4,7 +4,7 @@ Game inspired by the Higher Lower Game. The aim of the game is to choose the wor
 ## How to run the application in developer mode
 
 ### Step 1
-This application uses JSoup and JavaFX. To use this application, these libraries need to be added to the project. To do this download "jsoup-1.12.1.jar" and "javafx-sdk-11.0.2" and add the as libraries in the project.
+This application uses JSoup and JavaFX. To use this application, these libraries need to be added to the project. To do this download "jsoup-1.12.1.jar" and "javafx-sdk-11.0.2" and add them as libraries in the project.
 
 ### Step 2
 If you are using Eclipse as IDE it is important to do the following:
