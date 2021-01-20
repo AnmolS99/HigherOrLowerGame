@@ -20,7 +20,8 @@ If you are using Eclipse as IDE it is important to do the following:
 * Make sure you have downloaded and unpacked "javafx-sdk-11.0.2"
 * Open the terminal
 * Go to directory containing the JAR-file
-* Write the following: java --module-path "/your_path/javafx-sdk-11.0.2/lib" --add-modules javafx.controls,javafx.fxml -jar HigherOrLowerGame-1.0.jar
+* Write the following on Mac: java --module-path "/your_path/javafx-sdk-11.0.2/lib" --add-modules javafx.controls,javafx.fxml -jar HigherOrLowerGame-1.0.jar
+* Write the following on Windows: java --module-path .\javafx-sdk-11.0.2\lib\ --add-modules javafx.controls,javafx.fxml -jar .\HigherOrLowerGame-1.0.jar
 * Replace "your_path" with the path to the directory containing the "javafx-sdk-11.0.2" folder.
 * Run the command
 
