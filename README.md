@@ -26,6 +26,6 @@ If you are using Eclipse as IDE it is important to do the following:
 * Run the command
 
 ## Potential improvements
-One potential improvement is to make the application int an executable file. One way of doing this is to make this application into a Maven project and then make it into an executable file.
+One potential improvement is to make the application into an executable file. One way of doing this is to make this application into a Maven project and then make it into an executable file.
 
 Another improvement is to add new lists of words other than those in the "TopUSSearches.txt" file. This can be done by making a class implementing the HigherOrLowerGame/src/application/KeywordSelector.java interface, and change the KeywordSelector instance in HigherOrLowerGame/src/application/SampleController.java . Another way of doing this is by simply adding words into the "TopUSSearches.txt" file.
