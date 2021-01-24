@@ -6,22 +6,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
-   <center>
+<BorderPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <left>
       <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="leftButton" layoutX="26.0" layoutY="168.0" mnemonicParsing="false" onAction="#chooseLeft" prefHeight="103.0" prefWidth="145.0" text="Button" />
-            <Button fx:id="rightButton" layoutX="231.0" layoutY="168.0" mnemonicParsing="false" onAction="#chooseRight" prefHeight="103.0" prefWidth="145.0" text="Button" />
+            <Button fx:id="leftButton" disable="true" layoutX="26.0" layoutY="168.0" mnemonicParsing="false" onAction="#chooseLeft" prefHeight="103.0" prefWidth="145.0" text="Button" />
+            <Button fx:id="rightButton" disable="true" layoutX="231.0" layoutY="168.0" mnemonicParsing="false" onAction="#chooseRight" prefHeight="103.0" prefWidth="145.0" text="Button" />
             <Label layoutX="98.0" layoutY="39.0" prefHeight="54.0" prefWidth="205.0" text="Higher or Lower">
                <font>
                   <Font name="System Font" size="30.0" />
                </font>
             </Label>
-            <Button fx:id="BottomButton" layoutX="147.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleStart" text="Start new game" />
+            <Button fx:id="bottomButton" layoutX="147.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleStart" text="Start new game" />
             <Label fx:id="leftLabel" layoutX="26.0" layoutY="275.0" />
             <Label fx:id="rightLabel" layoutX="231.0" layoutY="275.0" />
             <Label fx:id="feedbackLabel" layoutX="181.0" layoutY="129.0" />
+            <Label layoutX="36.0" layoutY="93.0" prefHeight="18.0" prefWidth="62.0" text="Highscore: " />
+            <Label layoutX="36.0" layoutY="121.0" text="Current score:" />
+            <Label fx:id="highScoreLabel" layoutX="99.0" layoutY="94.0" text="0" />
+            <Label fx:id="currentScoreLabel" layoutX="117.0" layoutY="121.0" text="0" />
          </children>
       </AnchorPane>
-   </center>
+   </left>
 </BorderPane>

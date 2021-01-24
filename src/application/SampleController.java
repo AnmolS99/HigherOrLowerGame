@@ -20,7 +20,7 @@ public class SampleController {
 	@FXML
 	Button rightButton;
 	@FXML
-	Button BottomButton;
+	Button bottomButton;
 	
 	@FXML
 	Label leftLabel;
@@ -28,6 +28,10 @@ public class SampleController {
 	Label rightLabel;
 	@FXML
 	Label feedbackLabel;
+	@FXML
+	Label highScoreLabel;
+	@FXML
+	Label currentScoreLabel;
 	
 	@FXML
 	AnchorPane anchorPane;
@@ -37,10 +41,14 @@ public class SampleController {
 	Random random = new Random();
 	
 	// The left and right keywords and their results
-	
 	String leftKeyword;
 	String rightKeyword;
 	
+	// Current score and highscore
+	int currentScore;
+	int highScore;
+	
+	// Amount of Google results for the left and right keywords
 	long leftKeywordResults;
 	long rightKeywordResults;
 	
@@ -79,6 +87,45 @@ public class SampleController {
 		this.feedbackLabel.setText("");
 	}
 	
+	public void disableGuessButtons() {
+		this.leftButton.setDisable(true);
+		this.rightButton.setDisable(true);
+	}
+	
+	
+	public void enableGuessButtons() {
+		this.leftButton.setDisable(false);
+		this.rightButton.setDisable(false);
+	}
+	
+	public void enableBottomButton() {
+		this.bottomButton.setDisable(false);
+	}
+	
+	public void disableBottomButton() {
+		this.bottomButton.setDisable(true);
+	}
+	
+	// Increments the current score
+	public void incCurrentScore() {
+		this.currentScore++;
+		this.currentScoreLabel.setText(String.valueOf(this.currentScore));
+		this.updateHighScore();
+	}
+	
+	// Resets the current score
+	public void resetCurrentScore() {
+		this.currentScore = 0;
+		this.currentScoreLabel.setText("0");
+	}
+	
+	public void updateHighScore() {
+		if (this.currentScore > this.highScore) {
+			this.highScore = this.currentScore;
+			this.highScoreLabel.setText(String.valueOf(this.highScore));
+		}
+	}
+	
 	// Formats the numbers by adding spaces between every third digit
 	public String formatNumbers(long number) {
 		DecimalFormat decimalFormat = new DecimalFormat();
@@ -99,14 +146,14 @@ public class SampleController {
 	
 	// Effects added if guess is correct
 	public void correctGuess() {
-		
+		this.incCurrentScore();
 		this.anchorPane.styleProperty().set("-fx-background-color: #90FF63");
 		this.feedbackLabel.setText("Correct!");
 	}
 	
 	// Effects added if guess is wrong
 	public void wrongGuess() {
-		
+		this.resetCurrentScore();
 		this.anchorPane.styleProperty().set("-fx-background-color: #FF6363");
 		this.feedbackLabel.setText("Wrong!");
 	}
@@ -142,11 +189,15 @@ public class SampleController {
 	// If user starts new game
 	@FXML
 	public void handleStart() {
+		this.enableGuessButtons();
 		this.newRound();
 	}
 	
 	// Starting a new round
 	public void newRound() {
+		
+		// Disabling the "Start new round" forcing the user to make a guess
+		this.disableBottomButton();
 		
 		// Clearing all effects and results
 		this.clearResultText();
@@ -172,6 +223,8 @@ public class SampleController {
 	
 	// Making a guess
 	public void guessMade() {
+		this.disableGuessButtons();
+		this.enableBottomButton();
 		GoogleSearch firstGS = new GoogleSearch(this.leftKeyword);
 		GoogleSearch secondGS = new GoogleSearch(this.rightKeyword);
 		this.leftKeywordResults = firstGS.NumberOfResults;
